@@ -1,12 +1,12 @@
 # compare the output of transverse1 with transverse2 to see what the transverse_directions do
 [Mesh]
-  type = FileMesh
-  file = solid2.e
-[]
-
-[MeshModifiers]
+  [./file]
+    type = FileMeshGenerator
+    file = solid2.e
+  [../]
   [./xmin]
-    type = SideSetsFromNormals
+    type = SideSetsFromNormalsGenerator
+    input = file
     fixed_normal = true
     new_boundary = xmin
     normals = '-1 0 0'
