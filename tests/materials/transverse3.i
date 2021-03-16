@@ -67,7 +67,7 @@
 
 [BCs]
   [./p]
-    type = FunctionPresetBC
+    type = FunctionDirichletBC
     function = 'z'
     variable = pressure
     boundary = xmin
