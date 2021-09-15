@@ -1,12 +1,12 @@
 # NOT using transverse_directions in a more complicated mesh works as planned (compare this with transverse4)
 [Mesh]
-  type = FileMesh
-  file = solid4.e
-[]
-
-[MeshModifiers]
+  [./file]
+    type = FileMeshGenerator
+    file = solid4.e
+  [../]
   [./xmin]
-    type = SideSetsFromNormals
+    type = SideSetsFromNormalsGenerator
+    input = file
     fixed_normal = true
     new_boundary = xmin
     normals = '-1 0 0'
@@ -67,7 +67,7 @@
 
 [BCs]
   [./p]
-    type = FunctionPresetBC
+    type = FunctionDirichletBC
     function = 'z'
     variable = pressure
     boundary = xmin
