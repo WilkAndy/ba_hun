@@ -10,7 +10,15 @@
 ###############################################################################
 MOOSE_DIR          ?= $(shell dirname `pwd`)/../moose
 FRAMEWORK_DIR      ?= $(MOOSE_DIR)/framework
+ADDITIONAL_CPPFLAGS += -Wall -Wextra
 ###############################################################################
+
+# Extra stuff for GTEST
+ADDITIONAL_INCLUDES	:= -isystem $(FRAMEWORK_DIR)/contrib/gtest
+ADDITIONAL_INCLUDES	:= -isystem $(MOOSE_DIR)/unit/include
+ADDITIONAL_LIBS 	:= $(FRAMEWORK_DIR)/contrib/gtest/libgtest.la
+###############################################################################
+
 CURRENT_DIR        := $(shell pwd)
 
 # framework
@@ -24,11 +32,6 @@ ALL_MODULES := yes
 MISC              := yes
 include           $(MOOSE_DIR)/modules/modules.mk
 ###############################################################################
-
-# Extra stuff for CPPUNIT
-CPPUNIT_DIR 		?= $(PACKAGES_DIR)/cppunit
-ADDITIONAL_INCLUDES 	:= -I$(CPPUNIT_DIR)/include
-ADDITIONAL_LIBS 	:= -L$(CPPUNIT_DIR)/lib -lcppunit
 
 # dep apps
 APPLICATION_DIR    := $(CURRENT_DIR)/..
