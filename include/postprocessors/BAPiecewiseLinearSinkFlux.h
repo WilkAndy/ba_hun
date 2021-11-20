@@ -11,12 +11,6 @@
 
 #include "RichardsPiecewiseLinearSinkFlux.h"
 
-//Forward Declarations
-class BAPiecewiseLinearSinkFlux;
-
-template<>
-InputParameters validParams<BAPiecewiseLinearSinkFlux>();
-
 /**
  * This postprocessor computes the fluid flux to a BAPiecewiseLinearSink.
  */
@@ -25,6 +19,8 @@ class BAPiecewiseLinearSinkFlux:
 {
 public:
   BAPiecewiseLinearSinkFlux(const InputParameters & parameters);
+
+  static InputParameters validParams();
 
 protected:
   virtual Real computeQpIntegral();

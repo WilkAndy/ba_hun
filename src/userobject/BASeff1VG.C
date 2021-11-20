@@ -10,10 +10,9 @@
 //
 #include "BASeff1VG.h"
 
-template<>
-InputParameters validParams<BASeff1VG>()
+InputParameters BASeff1VG::validParams()
 {
-  InputParameters params = validParams<RichardsSeff>();
+  InputParameters params = RichardsSeff::validParams();
   params.addRequiredRangeCheckedParam<Real>("al", "al > 0", "van-Genuchten alpha parameter.  Must be positive.  Single-phase VG seff = (1 + (-al*(p-s))^(1/(1-m)))^(-m)");
   params.addRequiredRangeCheckedParam<Real>("m", "m > 0 & m < 1", "van-Genuchten m parameter.  Must be between 0 and 1, and optimally should be set to >0.5   Single-phase VG seff = (1 + (-al*(p-s))^(1/(1-m)))^(-m)");
   params.addParam<Real>("modflow_shift", 0, "Shift (s).  Typically this is not positive.  Single-phase VG seff = (1 + (-al*(p-s))^(1/(1-m)))^(-m)");

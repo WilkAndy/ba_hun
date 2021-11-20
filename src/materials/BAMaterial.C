@@ -15,10 +15,9 @@
 
 
 
-template<>
-InputParameters validParams<BAMaterial>()
+InputParameters BAMaterial::validParams()
 {
-  InputParameters params = validParams<RichardsMaterial>();
+  InputParameters params = RichardsMaterial::validParams();
   params.addRequiredCoupledVar("insitu_perm_zone", "An auxillary variable the defines the zone for insitu permeability.  For each element, the zone must be a nonnegative integer");
   params.addRequiredParam<std::vector<Real> >("kh", "A vector of horizontal insitu permeability values.  For insitu_perm_zone=0, the first of these is used.  For insitu_perm_zone=1, the second is used.  Etc.  You must ensure that for each insitu_perm_zone there is a value!");
   params.addRequiredParam<std::vector<Real> >("kv", "A vector of vertical insitu permeability values.  For insitu_perm_zone=0, the first of these is used.  For insitu_perm_zone=1, the second is used.  Etc.  You must ensure that for each insitu_perm_zone there is a value!");

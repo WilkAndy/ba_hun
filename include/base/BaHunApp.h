@@ -3,15 +3,12 @@
 
 #include "MooseApp.h"
 
-class BaHunApp;
-
-template<>
-InputParameters validParams<BaHunApp>();
-
 class BaHunApp : public MooseApp
 {
 public:
   BaHunApp(InputParameters parameters);
+  static InputParameters validParams();
+
   virtual ~BaHunApp();
 
   static void registerApps();

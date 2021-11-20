@@ -28,10 +28,9 @@
 #include "BATransverseDirectionAux.h"
 #include "BAHalfCubicSinkAux.h"
 
-template<>
-InputParameters validParams<BaHunApp>()
+InputParameters BaHunApp::validParams()
 {
-  InputParameters params = validParams<MooseApp>();
+  InputParameters params = MooseApp::validParams();
 
   params.set<bool>("use_legacy_uo_initialization") = false;
   params.set<bool>("use_legacy_uo_aux_computation") = false;

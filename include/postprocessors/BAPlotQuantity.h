@@ -11,11 +11,7 @@
 
 #include "GeneralPostprocessor.h"
 
-class BAPlotQuantity;
 class BAQuantity;
-
-template<>
-InputParameters validParams<BAPlotQuantity>();
 
 /**
  * Extracts the value from BAQuantity userobject
@@ -24,6 +20,8 @@ class BAPlotQuantity : public GeneralPostprocessor
 {
 public:
   BAPlotQuantity(const InputParameters & parameters);
+  static InputParameters validParams();
+
   virtual ~BAPlotQuantity();
 
   virtual void initialize();

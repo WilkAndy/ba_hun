@@ -6,10 +6,9 @@
 /****************************************************************/
 #include "BATransverseDirectionAux.h"
 
-template<>
-InputParameters validParams<BATransverseDirectionAux>()
+InputParameters BATransverseDirectionAux::validParams()
 {
-  InputParameters params = validParams<AuxKernel>();
+  InputParameters params = AuxKernel::validParams();
   params.addClassDescription("Produces a component of a normal vector.  This vector is normal to the top and bottom of each element of the mesh, assuming the element is a HEX8 or PRISM6, and that the mesh was created using sweeping in the vertical direction.  The normal vector is not normalised and points mostly upwards.");
   params.addRequiredRangeCheckedParam<unsigned int>("index", "index >= 0 & index <= 2", "The component of the normal vector to output");
   return params;

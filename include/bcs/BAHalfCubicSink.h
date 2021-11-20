@@ -12,12 +12,6 @@
 #include "IntegratedBC.h"
 #include "RichardsVarNames.h"
 
-// Forward Declarations
-class BAHalfCubicSink;
-
-template<>
-InputParameters validParams<BAHalfCubicSink>();
-
 /**
  * Applies a fluid sink to the boundary.
  * The sink has strength
@@ -33,6 +27,8 @@ class BAHalfCubicSink : public IntegratedBC
 {
 public:
   BAHalfCubicSink(const InputParameters & parameters);
+
+  static InputParameters validParams();
 
 protected:
   virtual Real computeQpResidual();
