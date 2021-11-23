@@ -14,10 +14,11 @@
 #include "Function.h"
 #include "FEProblem.h"
 
-template<>
-InputParameters validParams<BAHalfCubicSinkFlux>()
+registerMooseObject("BaHunApp", BAHalfCubicSinkFlux);
+
+InputParameters BAHalfCubicSinkFlux::validParams()
 {
-  InputParameters params = validParams<SideIntegralVariablePostprocessor>();
+  InputParameters params = SideIntegralVariablePostprocessor::validParams();
   params.addRequiredParam<Real>("max", "Maximum of the flux (measured in kg.m^-2.s^-1).  Denote x = porepressure - centre.  Then Flux out = (max/cutoff^3)*(2x + cutoff)(x - cutoff)^2 for cutoff < x < 0.  Flux out = max for x >= 0.  Flux out = 0 for x <= cutoff.  Note, to make this a source rather than a sink, let max<0");
   params.addRequiredParam<FunctionName>("cutoff", "Cutoff of the cubic (measured in Pa).  This needs to be less than zero.");
   params.addRequiredParam<Real>("centre", "Centre of the cubic (measured in Pa");

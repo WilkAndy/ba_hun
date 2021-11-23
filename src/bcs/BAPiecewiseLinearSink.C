@@ -8,10 +8,11 @@
 
 #include "BAPiecewiseLinearSink.h"
 
-template<>
-InputParameters validParams<BAPiecewiseLinearSink>()
+registerMooseObject("BaHunApp", BAPiecewiseLinearSink);
+
+InputParameters BAPiecewiseLinearSink::validParams()
 {
-  InputParameters params = validParams<RichardsPiecewiseLinearSink>();
+  InputParameters params = RichardsPiecewiseLinearSink::validParams();
   params.addCoupledVar("aux_var", 1, "Fluxes will be multiplied by this variable");
   return params;
 }

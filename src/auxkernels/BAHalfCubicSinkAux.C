@@ -7,10 +7,11 @@
 #include "BAHalfCubicSinkAux.h"
 #include "Function.h"
 
-template<>
-InputParameters validParams<BAHalfCubicSinkAux>()
+registerMooseObject("BaHunApp", BAHalfCubicSinkAux);
+
+InputParameters BAHalfCubicSinkAux::validParams()
 {
-  InputParameters params = validParams<AuxKernel>();
+  InputParameters params = AuxKernel::validParams();
   params.addClassDescription("Yields the values of a BAHalfCubicSink, measured in kg.m^-2.year^-1 (or whatever your base units are).");
   params.addRequiredParam<Real>("max", "Maximum of the flux (measured in kg.m^-2.s^-1).  Denote x = porepressure - centre.  Then Flux out = (max/cutoff^3)*(2x + cutoff)(x - cutoff)^2 for cutoff < x < 0.  Flux out = max for x >= 0.  Flux out = 0 for x <= cutoff.  Note, to make this a source rather than a sink, let max<0");
   params.addRequiredParam<FunctionName>("cutoff", "Cutoff of the cubic (measured in Pa).  This needs to be less than zero.");
@@ -46,4 +47,3 @@ BAHalfCubicSinkAux::computeValue()
   const Real cutoff3 = cutoff*cutoff*cutoff;
   return full_value*(2*x + cutoff)*(x - cutoff)*(x - cutoff)/cutoff3;
 }
-

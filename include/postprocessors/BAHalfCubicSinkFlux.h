@@ -14,12 +14,6 @@
 
 class Function;
 
-//Forward Declarations
-class BAHalfCubicSinkFlux;
-
-template<>
-InputParameters validParams<BAHalfCubicSinkFlux>();
-
 /**
  * Postprocessor that records the mass flux from porespace to
  * a half-cubic sink.  (Positive if fluid is being removed from porespace.)
@@ -35,6 +29,8 @@ class BAHalfCubicSinkFlux: public SideIntegralVariablePostprocessor
 {
 public:
   BAHalfCubicSinkFlux(const InputParameters & parameters);
+
+  static InputParameters validParams();
 
 protected:
   virtual Real computeQpIntegral();

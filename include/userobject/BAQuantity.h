@@ -11,11 +11,6 @@
 
 #include "GeneralUserObject.h"
 
-class BAQuantity;
-
-template<>
-InputParameters validParams<BAQuantity>();
-
 /**
  * Records a quantity into _quant
  * This is used, for instance, to record the porepressure at a point
@@ -27,6 +22,8 @@ class BAQuantity : public GeneralUserObject
 {
 public:
   BAQuantity(const InputParameters & parameters);
+  static InputParameters validParams();
+
   virtual ~BAQuantity();
 
   /// sets _quant = 0

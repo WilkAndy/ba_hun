@@ -10,10 +10,11 @@
 //
 #include "BAPiecewiseLinearSinkFlux.h"
 
-template<>
-InputParameters validParams<BAPiecewiseLinearSinkFlux>()
+registerMooseObject("BaHunApp", BAPiecewiseLinearSinkFlux);
+
+InputParameters BAPiecewiseLinearSinkFlux::validParams()
 {
-  InputParameters params = validParams<RichardsPiecewiseLinearSinkFlux>();
+  InputParameters params = RichardsPiecewiseLinearSinkFlux::validParams();
   params.addCoupledVar("aux_var", 1, "Fluxes will be multiplied by this variable");
   return params;
 }

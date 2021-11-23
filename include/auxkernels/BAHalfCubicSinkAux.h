@@ -11,11 +11,6 @@
 
 class Function;
 
-class BAHalfCubicSinkAux;
-
-template<>
-InputParameters validParams<BAHalfCubicSinkAux>();
-
 /**
  * BAHalfCubicSinkAux allows visualisation of a
  * BAHalfCubicSink BC.  Measured in kg.m^-2.year^-1
@@ -24,6 +19,8 @@ class BAHalfCubicSinkAux : public AuxKernel
 {
 public:
   BAHalfCubicSinkAux(const InputParameters & parameters);
+  static InputParameters validParams();
+
   virtual ~BAHalfCubicSinkAux() {}
 
 protected:

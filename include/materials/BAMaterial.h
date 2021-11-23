@@ -11,12 +11,6 @@
 
 #include "RichardsMaterial.h"
 
-//Forward Declarations
-class BAMaterial;
-
-template<>
-InputParameters validParams<BAMaterial>();
-
 /*
  * Material designed to work well with the BA project which has a lot of different zones,
  * so is not suitable for dividing into blocks.
@@ -37,6 +31,8 @@ class BAMaterial : public RichardsMaterial
 {
 public:
   BAMaterial(const InputParameters & parameters);
+
+  static InputParameters validParams();
 
 protected:
 
