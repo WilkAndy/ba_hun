@@ -16,11 +16,6 @@
 
 #include "GeneralPostprocessor.h"
 
-class BASumPostprocessor;
-
-template<>
-InputParameters validParams<BASumPostprocessor>();
-
 /**
  * This postprocessor will return Sum_over_i(postprocessors_i/w_i)
  */
@@ -28,6 +23,8 @@ class BASumPostprocessor : public GeneralPostprocessor
 {
 public:
   BASumPostprocessor(const InputParameters & parameters);
+  static InputParameters validParams();
+
   virtual ~BASumPostprocessor();
 
   virtual void initialize();

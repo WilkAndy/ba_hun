@@ -9,11 +9,6 @@
 
 #include "AuxKernel.h"
 
-class BATransverseDirectionAux;
-
-template<>
-InputParameters validParams<BATransverseDirectionAux>();
-
 /**
  * BATransverseDirectionAux is produces a component of
  * a normal vector.  This vector is normal to the top
@@ -26,6 +21,8 @@ class BATransverseDirectionAux : public AuxKernel
 {
 public:
   BATransverseDirectionAux(const InputParameters & parameters);
+  static InputParameters validParams();
+
   virtual ~BATransverseDirectionAux() {}
 
 protected:

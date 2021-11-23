@@ -9,10 +9,11 @@
 #include "BAPlotQuantity.h"
 #include "BAQuantity.h"
 
-template<>
-InputParameters validParams<BAPlotQuantity>()
+registerMooseObject("BaHunApp", BAPlotQuantity);
+
+InputParameters BAPlotQuantity::validParams()
 {
-  InputParameters params = validParams<GeneralPostprocessor>();
+  InputParameters params = GeneralPostprocessor::validParams();
   params.addRequiredParam<UserObjectName>("uo", "user object name that has the total mass value");
 
   return params;

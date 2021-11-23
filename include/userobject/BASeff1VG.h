@@ -12,12 +12,6 @@
 #include "RichardsSeff.h"
 #include "RichardsSeffVG.h"
 
-class BASeff1VG;
-
-
-template<>
-InputParameters validParams<BASeff1VG>();
-
 /**
  * Effective saturation as a function of porepressure
  * using the van Genuchten formula.  Note this is not a function
@@ -28,6 +22,8 @@ class BASeff1VG : public RichardsSeff
 {
 public:
   BASeff1VG(const InputParameters & parameters);
+
+  static InputParameters validParams();
 
   /**
    * effective saturation as a function of porepressure

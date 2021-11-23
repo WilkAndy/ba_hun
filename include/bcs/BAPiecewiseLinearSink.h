@@ -11,12 +11,6 @@
 
 #include "RichardsPiecewiseLinearSink.h"
 
-// Forward Declarations
-class BAPiecewiseLinearSink;
-
-template<>
-InputParameters validParams<BAPiecewiseLinearSink>();
-
 /**
  * Multiplies RichardsPiecewiseLinearSink by an aux variable
  */
@@ -25,6 +19,8 @@ class BAPiecewiseLinearSink : public RichardsPiecewiseLinearSink
 public:
 
   BAPiecewiseLinearSink(const InputParameters & parameters);
+
+  static InputParameters validParams();
 
 protected:
   virtual Real computeQpResidual();

@@ -5,12 +5,6 @@
 #include "BAQuantity.h"
 #include "Function.h"
 
-//Forward Declarations
-class BAPolyLineSink;
-
-template<>
-InputParameters validParams<BAPolyLineSink>();
-
 /**
  * Approximates a polyline by a sequence of Dirac Points
  * the mass flux from each Dirac Point is _sink_func as a
@@ -22,6 +16,8 @@ class BAPolyLineSink : public RichardsPolyLineSink
 {
 public:
   BAPolyLineSink(const InputParameters & parameters);
+
+  static InputParameters validParams();
 
   virtual void addPoints();
 

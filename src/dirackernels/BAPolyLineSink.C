@@ -1,9 +1,10 @@
 #include "BAPolyLineSink.h"
 
-template<>
-InputParameters validParams<BAPolyLineSink>()
+registerMooseObject("BaHunApp", BAPolyLineSink);
+
+InputParameters BAPolyLineSink::validParams()
 {
-  InputParameters params = validParams<RichardsPolyLineSink>();
+  InputParameters params = RichardsPolyLineSink::validParams();
   params.addRequiredParam<FunctionName>("p0", "Base porepressure.  SinkFlux = _sink_func(p - p0)");
   params.addParam<Real>("start_time", -1.0E36, "Only if t>=start_time will the polyline sink be active");
   params.addParam<Real>("end_time", 1.0E36, "Only if t<=end_time will the polyline sink be active");

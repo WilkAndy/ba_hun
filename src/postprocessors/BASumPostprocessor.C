@@ -13,10 +13,11 @@
 /****************************************************************/
 #include "BASumPostprocessor.h"
 
-template<>
-InputParameters validParams<BASumPostprocessor>()
+registerMooseObject("BaHunApp", BASumPostprocessor);
+
+InputParameters BASumPostprocessor::validParams()
 {
-  InputParameters params = validParams<GeneralPostprocessor>();
+  InputParameters params = GeneralPostprocessor::validParams();
   params.addRequiredParam<std::vector<PostprocessorName> >("postprocessors", "This postprocessor will return Sum_over_i(postprocessors_i/w_i)");
   params.addRequiredParam<std::vector<PostprocessorName> >("w", "This postprocessor will return Sum_over_i(postprocessors_i/w_i)");
   params.addClassDescription("Returns the linear combination of the postprocessors");

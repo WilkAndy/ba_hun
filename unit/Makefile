@@ -3,7 +3,7 @@
 ###############################################################################
 #
 # Optional Environment variables
-# MOOSE_DIR        - Root directory of the MOOSE project 
+# MOOSE_DIR        - Root directory of the MOOSE project
 # HERD_TRUNK_DIR   - Location of the HERD repository
 # FRAMEWORK_DIR    - Location of the MOOSE framework
 #
@@ -26,10 +26,10 @@ include $(FRAMEWORK_DIR)/build.mk
 include $(FRAMEWORK_DIR)/moose.mk
 
 ################################## MODULES ####################################
-#HEAT_CONDUCTION   := yes
-#NAVIER_STOKES     := yes
-ALL_MODULES := yes
-MISC              := yes
+ALL_MODULES       := no
+RICHARDS          := yes
+TENSOR_MECHANICS  := yes
+FLUID_PROPERTIES  := yes
 include           $(MOOSE_DIR)/modules/modules.mk
 ###############################################################################
 
