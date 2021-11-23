@@ -1,5 +1,7 @@
 #include "BAPolyLineSink.h"
 
+registerMooseObject("BaHunApp", BAPolyLineSink);
+
 InputParameters BAPolyLineSink::validParams()
 {
   InputParameters params = RichardsPolyLineSink::validParams();

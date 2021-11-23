@@ -8,6 +8,8 @@
 
 #include "BAQuantity.h"
 
+registerMooseObject("BaHunApp", BAQuantity);
+
 InputParameters BAQuantity::validParams()
 {
   InputParameters params = GeneralUserObject::validParams();

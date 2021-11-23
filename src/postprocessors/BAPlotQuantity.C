@@ -9,6 +9,8 @@
 #include "BAPlotQuantity.h"
 #include "BAQuantity.h"
 
+registerMooseObject("BaHunApp", BAPlotQuantity);
+
 InputParameters BAPlotQuantity::validParams()
 {
   InputParameters params = GeneralPostprocessor::validParams();

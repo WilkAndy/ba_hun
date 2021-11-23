@@ -10,6 +10,8 @@
 //
 #include "BAPiecewiseLinearSinkFlux.h"
 
+registerMooseObject("BaHunApp", BAPiecewiseLinearSinkFlux);
+
 InputParameters BAPiecewiseLinearSinkFlux::validParams()
 {
   InputParameters params = RichardsPiecewiseLinearSinkFlux::validParams();

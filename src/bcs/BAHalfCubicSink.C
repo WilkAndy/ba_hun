@@ -15,6 +15,7 @@
 
 #include <iostream>
 
+registerMooseObject("BaHunApp", BAHalfCubicSink);
 
 InputParameters BAHalfCubicSink::validParams()
 {

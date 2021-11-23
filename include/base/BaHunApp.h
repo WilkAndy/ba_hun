@@ -7,13 +7,13 @@ class BaHunApp : public MooseApp
 {
 public:
   BaHunApp(InputParameters parameters);
-  static InputParameters validParams();
 
   virtual ~BaHunApp();
 
+  static InputParameters validParams();
+
   static void registerApps();
-  static void registerObjects(Factory & factory);
-  static void associateSyntax(Syntax & syntax, ActionFactory & action_factory);
+  static void registerAll(Factory & factory, ActionFactory & af, Syntax & syntax);
 };
 
 #endif /* BA_HUNAPP_H */

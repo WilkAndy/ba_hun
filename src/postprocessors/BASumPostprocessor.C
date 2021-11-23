@@ -13,6 +13,8 @@
 /****************************************************************/
 #include "BASumPostprocessor.h"
 
+registerMooseObject("BaHunApp", BASumPostprocessor);
+
 InputParameters BASumPostprocessor::validParams()
 {
   InputParameters params = GeneralPostprocessor::validParams();

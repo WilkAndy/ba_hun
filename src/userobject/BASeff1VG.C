@@ -10,6 +10,8 @@
 //
 #include "BASeff1VG.h"
 
+registerMooseObject("BaHunApp", BASeff1VG);
+
 InputParameters BASeff1VG::validParams()
 {
   InputParameters params = RichardsSeff::validParams();
@@ -46,4 +48,3 @@ BASeff1VG::d2seff(std::vector<const VariableValue *> p, unsigned int qp, std::ve
 {
   result[0][0] = RichardsSeffVG::d2seff((*p[0])[qp] - _modflow_shift, _al, _m);
 }
-

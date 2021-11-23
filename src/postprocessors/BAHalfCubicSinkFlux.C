@@ -14,6 +14,8 @@
 #include "Function.h"
 #include "FEProblem.h"
 
+registerMooseObject("BaHunApp", BAHalfCubicSinkFlux);
+
 InputParameters BAHalfCubicSinkFlux::validParams()
 {
   InputParameters params = SideIntegralVariablePostprocessor::validParams();

@@ -6,6 +6,8 @@
 /****************************************************************/
 #include "BATransverseDirectionAux.h"
 
+registerMooseObject("BaHunApp", BATransverseDirectionAux);
+
 InputParameters BATransverseDirectionAux::validParams()
 {
   InputParameters params = AuxKernel::validParams();
@@ -64,4 +66,3 @@ BATransverseDirectionAux::computeValue()
 
   return av_norm(_i);
 }
-

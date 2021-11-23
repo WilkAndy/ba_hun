@@ -13,7 +13,7 @@
 // libmesh includes
 #include "libmesh/quadrature.h"
 
-
+registerMooseObject("BaHunApp", BAMaterial);
 
 InputParameters BAMaterial::validParams()
 {

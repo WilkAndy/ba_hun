@@ -4,30 +4,6 @@
 #include "MooseSyntax.h"
 #include "ModulesApp.h"
 
-// Materials
-#include "BAMaterial.h"
-
-// DiracKernels
-#include "BAPolyLineSink.h"
-
-// UserObjects
-#include "BAQuantity.h"
-#include "BASeff1VG.h"
-
-// Postprocessors
-#include "BAPlotQuantity.h"
-#include "BAPiecewiseLinearSinkFlux.h"
-#include "BAHalfCubicSinkFlux.h"
-#include "BASumPostprocessor.h"
-
-// BCs
-#include "BAPiecewiseLinearSink.h"
-#include "BAHalfCubicSink.h"
-
-// AuxKernels
-#include "BATransverseDirectionAux.h"
-#include "BAHalfCubicSinkAux.h"
-
 InputParameters BaHunApp::validParams()
 {
   InputParameters params = MooseApp::validParams();
@@ -42,56 +18,38 @@ InputParameters BaHunApp::validParams()
 BaHunApp::BaHunApp(InputParameters parameters) :
     MooseApp(parameters)
 {
-
-  Moose::registerObjects(_factory);
-  ModulesApp::registerObjects(_factory);
-  BaHunApp::registerObjects(_factory);
-
-  Moose::associateSyntax(_syntax, _action_factory);
-  ModulesApp::associateSyntax(_syntax, _action_factory);
-  BaHunApp::associateSyntax(_syntax, _action_factory);
+  BaHunApp::registerAll(_factory, _action_factory, _syntax);
 }
 
 BaHunApp::~BaHunApp()
 {
 }
 
-extern "C" void BaHunApp__registerApps() { BaHunApp::registerApps(); }
+void
+BaHunApp::registerAll(Factory & factory, ActionFactory & af, Syntax & syntax)
+{
+  ModulesApp::registerAll(factory, af, syntax);
+
+  Registry::registerObjectsTo(factory, {"BaHunApp"});
+  Registry::registerActionsTo(af, {"BaHunApp"});
+}
+
 void
 BaHunApp::registerApps()
 {
   registerApp(BaHunApp);
 }
 
-void
-BaHunApp::registerObjects(Factory & factory)
+/***************************************************************************************************
+ *********************** Dynamic Library Entry Points - DO NOT MODIFY ******************************
+ **************************************************************************************************/
+extern "C" void
+BaHunApp__registerAll(Factory & f, ActionFactory & af, Syntax & s)
 {
-  // Materials
-  registerMaterial(BAMaterial);
-
-  // DiracKernels
-  registerDiracKernel(BAPolyLineSink);
-
-  // UserObjects
-  registerUserObject(BAQuantity);
-  registerUserObject(BASeff1VG);
-
-  // Postprocessors
-  registerPostprocessor(BAPlotQuantity);
-  registerPostprocessor(BAPiecewiseLinearSinkFlux);
-  registerPostprocessor(BAHalfCubicSinkFlux);
-  registerPostprocessor(BASumPostprocessor);
-
-  // BCs
-  registerBoundaryCondition(BAPiecewiseLinearSink);
-  registerBoundaryCondition(BAHalfCubicSink);
-
-  // AuxKernels
-  registerAuxKernel(BATransverseDirectionAux);
-  registerAuxKernel(BAHalfCubicSinkAux);
+  BaHunApp::registerAll(f, af, s);
 }
-
-void
-BaHunApp::associateSyntax(Syntax & syntax, ActionFactory & action_factory)
+extern "C" void
+BaHunApp__registerApps()
 {
+  BaHunApp::registerApps();
 }

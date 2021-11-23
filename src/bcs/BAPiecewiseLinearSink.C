@@ -8,6 +8,8 @@
 
 #include "BAPiecewiseLinearSink.h"
 
+registerMooseObject("BaHunApp", BAPiecewiseLinearSink);
+
 InputParameters BAPiecewiseLinearSink::validParams()
 {
   InputParameters params = RichardsPiecewiseLinearSink::validParams();

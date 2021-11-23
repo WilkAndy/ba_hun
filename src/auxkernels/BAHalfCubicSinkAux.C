@@ -7,6 +7,8 @@
 #include "BAHalfCubicSinkAux.h"
 #include "Function.h"
 
+registerMooseObject("BaHunApp", BAHalfCubicSinkAux);
+
 InputParameters BAHalfCubicSinkAux::validParams()
 {
   InputParameters params = AuxKernel::validParams();
@@ -45,4 +47,3 @@ BAHalfCubicSinkAux::computeValue()
   const Real cutoff3 = cutoff*cutoff*cutoff;
   return full_value*(2*x + cutoff)*(x - cutoff)*(x - cutoff)/cutoff3;
 }
-
