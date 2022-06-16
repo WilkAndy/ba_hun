@@ -202,7 +202,6 @@
 [Outputs]
   execute_on = 'timestep_end'
   file_base = st01
-  output_initial = false
   exodus = false
   csv = true
 []

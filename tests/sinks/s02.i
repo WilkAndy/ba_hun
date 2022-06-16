@@ -221,10 +221,5 @@
   execute_on = 'timestep_end'
   hide = one
   file_base = s02
-  output_initial = false
   csv = true
-[]
-
-[Problem]
-  use_legacy_uo_initialization = true
 []
