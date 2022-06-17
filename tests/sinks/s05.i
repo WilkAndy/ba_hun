@@ -216,10 +216,5 @@
 [Outputs]
   execute_on = 'timestep_end'
   file_base = s05
-  output_initial = false
   csv = true
-[]
-
-[Problem]
-  use_legacy_uo_initialization = true
 []

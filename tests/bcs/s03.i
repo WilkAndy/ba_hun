@@ -208,6 +208,5 @@
 [Outputs]
   execute_on = 'timestep_end'
   file_base = s03
-  output_initial = false
   csv = true
 []

@@ -228,7 +228,6 @@
 
 [Outputs]
   file_base = zones03
-  output_final = true
   [./exodus]
     type = Exodus
     hide = por_zone
