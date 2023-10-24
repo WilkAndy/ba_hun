@@ -28,7 +28,7 @@ public:
   virtual void execute();
 
   /// returns the value of the BAQuantity
-  virtual PostprocessorValue getValue();
+  virtual PostprocessorValue getValue() const;
 
 protected:
 

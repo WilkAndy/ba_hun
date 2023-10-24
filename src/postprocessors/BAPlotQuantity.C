@@ -40,7 +40,7 @@ BAPlotQuantity::execute()
 }
 
 PostprocessorValue
-BAPlotQuantity::getValue()
+BAPlotQuantity::getValue() const
 {
   return _total_value.getValue();
 }
