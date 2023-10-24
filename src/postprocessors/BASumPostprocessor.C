@@ -57,7 +57,7 @@ BASumPostprocessor::execute()
 }
 
 PostprocessorValue
-BASumPostprocessor::getValue()
+BASumPostprocessor::getValue() const
 {
   Real val = 0;
   for (unsigned i = 0 ; i < _num_w ; ++i)

@@ -158,3 +158,6 @@ peacock_*.e
 *.cpr-*
 
 include/base/BaHunRevision.h
+
+build
+ba_hun.yaml
