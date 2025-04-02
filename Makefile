@@ -22,7 +22,7 @@ include $(FRAMEWORK_DIR)/moose.mk
 ################################## MODULES ####################################
 ALL_MODULES := no
 RICHARDS    := yes
-TENSOR_MECHANICS  := yes
+SOLID_MECHANICS   := yes
 FLUID_PROPERTIES  := yes
 include $(MOOSE_DIR)/modules/modules.mk
 ###############################################################################
