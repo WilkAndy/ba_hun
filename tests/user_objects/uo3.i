@@ -258,8 +258,8 @@
     type = SMP
     full = true
     petsc_options = '-snes_converged_reason'
-    petsc_options_iname = '-ksp_type -pc_type -snes_atol -snes_rtol -snes_max_it'
-    petsc_options_value = 'bcgs bjacobi 1E50 1E50 10000'
+    petsc_options_iname = '-ksp_type -pc_type -snes_max_it'
+    petsc_options_value = 'bcgs bjacobi 10000'
   [../]
 []
 
@@ -268,6 +268,9 @@
   solve_type = Newton
   num_steps = 1
   dt = 1E-100
+
+  nl_abs_tol = '1e-10'
+  line_search = 'none'
 []
 
 [Outputs]
