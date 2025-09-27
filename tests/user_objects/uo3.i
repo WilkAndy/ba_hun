@@ -44,49 +44,49 @@
 [Functions]
   [./initial_pressure]
     type = ParsedFunction
-    value = x
+    expression = x
   [../]
 
   [./answer_Seff1VG]
     type = ParsedFunction
-    value = (1+max((-x)*al,0)^(1/(1-m)))^(-m)
-    vars = 'al m'
-    vals = '1E-6 0.8'
+    expression = (1+max((-x)*al,0)^(1/(1-m)))^(-m)
+    symbol_names = 'al m'
+    symbol_values = '1E-6 0.8'
   [../]
   [./answer_dSeff1VG]
     type = GradParsedFunction
     direction = '1 0 0'
-    value = (1+max((-x)*al,0)^(1/(1-m)))^(-m)
-    vars = 'al m'
-    vals = '1E-6 0.8'
+    expression = (1+max((-x)*al,0)^(1/(1-m)))^(-m)
+    symbol_names = 'al m'
+    symbol_values = '1E-6 0.8'
   [../]
   [./answer_d2Seff1VG]
     type = Grad2ParsedFunction
     direction = '1 0 0'
-    value = (1+max((-x)*al,0)^(1/(1-m)))^(-m)
-    vars = 'al m'
-    vals = '1E-6 0.8'
+    expression = (1+max((-x)*al,0)^(1/(1-m)))^(-m)
+    symbol_names = 'al m'
+    symbol_values = '1E-6 0.8'
   [../]
 
   [./answer_BASeff1VG]
     type = ParsedFunction
-    value = (1+max((-x-s)*al,0)^(1/(1-m)))^(-m)
-    vars = 'al m s'
-    vals = '1E-6 0.8 1E6'
+    expression = (1+max((-x-s)*al,0)^(1/(1-m)))^(-m)
+    symbol_names = 'al m s'
+    symbol_values = '1E-6 0.8 1E6'
   [../]
   [./answer_dBASeff1VG]
     type = GradParsedFunction
     direction = '1 0 0'
-    value = (1+max((-x-s)*al,0)^(1/(1-m)))^(-m)
-    vars = 'al m s'
-    vals = '1E-6 0.8 -1E6'
+    expression = (1+max((-x-s)*al,0)^(1/(1-m)))^(-m)
+    symbol_names = 'al m s'
+    symbol_values = '1E-6 0.8 -1E6'
   [../]
   [./answer_d2BASeff1VG]
     type = Grad2ParsedFunction
     direction = '1 0 0'
-    value = (1+max((-x-s)*al,0)^(1/(1-m)))^(-m)
-    vars = 'al m s'
-    vals = '1E-6 0.8 -1E6'
+    expression = (1+max((-x-s)*al,0)^(1/(1-m)))^(-m)
+    symbol_names = 'al m s'
+    symbol_values = '1E-6 0.8 -1E6'
   [../]
 []
 
